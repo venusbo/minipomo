@@ -1,0 +1,16 @@
+body {
+    background: #ca7f7f;
+    font-size: 25px;
+}
+
+#js_stopwatch {
+    text-align: center;
+}
+
+#stopwatch {
+    background: #fff;
+    color: #000;
+    width: 100px;
+    margin: 50px auto;
+}
+
