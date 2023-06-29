@@ -1,5 +1,6 @@
 body {
     font-family: monospace;
+    background-color: #c795ec;
 }
 
 .timer {
@@ -16,9 +17,11 @@ button {
     position: relative;
     border-radius: 50%;
     border: 1px;
-    
+    color: #000000
+}
 
-
+button:hover {
+    color: #505050
 }
 
 header {
@@ -52,7 +55,6 @@ nav ul li {
     padding: 5px 10px;
     margin: 0;
     font-family: monospace;
-    
 
 }
 
@@ -61,6 +63,7 @@ h2 {
     color: #000000;
     font-size: 24px;
     font-family: monospace;
+    text-align: center;
 
 }
 
@@ -102,18 +105,32 @@ header p {
     text-align: center;
 }
 
+#js_pomodoro {
+    text-align: center;
+}
+
 #timer {
     padding: 100, 50, 0, 50;
     margin: 50px auto;
     font-size: 48px;
     text-align: center;
     font-family: monospace;
+    color: #ffffff
 
 }
 
+
+#pomodoro {
+    padding: 100, 50, 0, 50;
+    margin: 50px auto;
+    font-size: 48px;
+    text-align: center;
+    font-family: monospace;
+    color: #ffffff
+}
+
 .quotes {
-    position: absolute;
+    position: relative;
     padding: 300 0 0 0;
-    width: 100%
 }
 
