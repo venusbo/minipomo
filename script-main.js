@@ -1,44 +1,41 @@
-var stopwatch;
-var ele = document.getElementById("stopwatch");
+var timer;
+var ele = document.getElementById('timer');
+var timerOn = Boolean()
 
 function pause(){
+    document.querySelector("body","header","h2","p").style.background = "#ec9595"
     clearInterval(timer);
+    return;
 }
 
 function start(){
-
+    document.querySelector("body","header","h2","p").style.background = "#95ecaf"
     timer = setInterval(()=>{
-
         sec ++;
         min = Math.floor(sec/60);
-        
         ele.innerHTML = min + ":" + sec%60
-        
-        }, 1000) // each 1 second
-    }
+    }, 1000)
+    return;
+}
 
 function reset(){
 
-    clearInterval(timer);
-    
-    sec = 0
-    min = 0
+    sec = 0;
+    min = 0;
     ele.innerHTML = min + ":" + sec%60
+    document.querySelector("body","header","h2","p").style.background = "#c795ec"
+    return;
 }
 
-(function (){
-    sec = 0;
-    
-    timer = setInterval(()=>{
+(function(){
+    sec = 0
+    document.querySelector("body","header","h2","p").style.background = "#95ecaf"
+        timer = setInterval(()=>{
+            sec ++;
+            min = Math.floor(sec/60);
+            ele.innerHTML = min +":"+ sec%60
+        }, 1000)}
 
-        sec ++;
-        min = Math.floor(sec/60);
-        
-        ele.innerHTML = min + ":" + sec%60
-        
-        }, 1000) // each 1 second
-})()
-
-
+)()
 
 
