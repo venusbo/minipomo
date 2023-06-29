@@ -1,15 +1,22 @@
 var timer;
 var ele = document.getElementById('timer');
-var timerOn = Boolean()
+
+
+function changeBackground(backgroundColor) {
+    var elements = document.querySelectorAll("body, header, h2, p");
+    elements.forEach(function(element) {
+      element.style.background = backgroundColor;
+    });
+  }
 
 function pause(){
-    document.querySelector("body","header","h2","p").style.background = "#ec9595"
+    changeBackground("#ec9595");
     clearInterval(timer);
     return;
 }
 
 function start(){
-    document.querySelector("body","header","h2","p").style.background = "#95ecaf"
+    changeBackground("#95ecaf");
     timer = setInterval(()=>{
         sec ++;
         min = Math.floor(sec/60);
@@ -19,23 +26,21 @@ function start(){
 }
 
 function reset(){
-
     sec = 0;
     min = 0;
     ele.innerHTML = min + ":" + sec%60
-    document.querySelector("body","header","h2","p").style.background = "#c795ec"
+    changeBackground("#c795ec");
     return;
 }
 
 (function(){
-    sec = 0
-    document.querySelector("body","header","h2","p").style.background = "#95ecaf"
-        timer = setInterval(()=>{
-            sec ++;
-            min = Math.floor(sec/60);
-            ele.innerHTML = min +":"+ sec%60
-        }, 1000)}
+
+    timer = setInterval(()=>{0
+    }, 1000)
+    clearInterval(timer);
+    sec = 0;
+    ele.innerHTML = "00" + ":" + "00"
+    document.querySelector("body","header","h2","p").style.background = "#c795ec"
+    return;}
 
 )()
-
-
