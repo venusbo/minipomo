@@ -1,16 +1,119 @@
 body {
-    background: #ca7f7f;
-    font-size: 25px;
+    font-family: monospace;
 }
 
-#js_stopwatch {
+.timer {
+    position: relative;
+    padding: 100px;
+    font-family: monospace;
+}
+
+button {
+    font-family: monospace;
+    font-size: 16;
+    background-color: rgb(239, 255, 99);
+    margin: 8px;
+    position: relative;
+    border-radius: 50%;
+    border: 1px;
+    
+
+
+}
+
+header {
+    position: relative;
+    color: #ffffff;
+    padding: 0;
+    font-family: monospace;
+}
+
+header h2 {
+    padding: 0 100px 0 100px;
+    text-align: left;
+    font-size: 24;
+    font-family: monospace;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0 100px 0 100px;
+    display: inline;
+    
+}
+
+nav ul li {
+    background-color:rgb(239, 255, 99);
+    text-align: left;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1;
+    list-style-type: disc;
+    padding: 5px 10px;
+    margin: 0;
+    font-family: monospace;
+    
+
+}
+
+h2 {
+
+    color: #000000;
+    font-size: 24px;
+    font-family: monospace;
+
+}
+
+li {
+    color: #ffffff;
+    
+}
+
+p {
+    color: rgb(0, 0, 0);
+    padding: 10px 8px;
+    font-size: 12px;
+    text-align: center;
+
+}
+
+.link, ul {
+    background: none;
+    color: #000000;
+}
+
+.link:hover {
+    color: #ffffff;
+}
+
+header p {
+    padding: 0, 500px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "poppins", sans-serif;
+    box-sizing: border-box;
+
+}
+
+#js_timer {
     text-align: center;
 }
 
-#stopwatch {
-    background: #fff;
-    color: #000;
-    width: 100px;
+#timer {
+    padding: 100, 50, 0, 50;
     margin: 50px auto;
+    font-size: 48px;
+    text-align: center;
+    font-family: monospace;
+
+}
+
+.quotes {
+    position: absolute;
+    padding: 300 0 0 0;
+    width: 100%
 }
 
