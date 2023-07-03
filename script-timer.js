@@ -40,7 +40,7 @@ function reset(){
     clearInterval(timer);
     sec = 0;
     ele.innerHTML = "00" + ":" + "00"
-    document.querySelector("body","header","h2","p").style.background = "#c795ec"
+    changeBackground("#c795ec");
     return;}
 
 )()
