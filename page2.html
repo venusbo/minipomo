@@ -1,9 +1,10 @@
+
+
 <html>
     <head>
         <title>MiniPOMO</title>
         <link href="style-main.css" rel="stylesheet" type="text/css"/>
     </head>
-
     <br><br>
 
 <body>
@@ -12,8 +13,8 @@
     <br>
         <nav>
             <ul>
-                <li><a class = "link" href="index.html">stopwatch</a></a></li>
                 <li><a Class = "link" href ="page2.html">pomodoro</a></a></li>
+                <li><a class = "link" href="index.html">stopwatch</a></a></li>
                 <li><a Class = "link" href="page3.html">about</a></a></li>
             </ul>
         </nav>
@@ -21,11 +22,13 @@
     
     <div class = "timer">
         <div id ="js_pomodoro">
+            <div id = "statusPomodoro"></div>
             <div id ="pomodoro">
             00:00
             </div>
             <button onclick="start()">start</button>
             <button onclick="reset()">reset</button>
+            
         <script src="script-pomodoro.js"></script>
     </div>
 
