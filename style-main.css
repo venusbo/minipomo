@@ -1,5 +1,6 @@
 body {
     font-family: monospace;
+    background-color: #c795ec;
 }
 
 .timer {
@@ -16,9 +17,11 @@ button {
     position: relative;
     border-radius: 50%;
     border: 1px;
-    
+    color: #000000
+}
 
-
+button:hover {
+    color: #505050
 }
 
 header {
@@ -33,6 +36,7 @@ header h2 {
     text-align: left;
     font-size: 24;
     font-family: monospace;
+    color: white
 }
 
 nav ul {
@@ -52,25 +56,25 @@ nav ul li {
     padding: 5px 10px;
     margin: 0;
     font-family: monospace;
-    
 
 }
 
 h2 {
 
-    color: #000000;
+    color: #ffffff;
     font-size: 24px;
     font-family: monospace;
+    text-align: center;
 
 }
 
 li {
-    color: #ffffff;
+    color: #000000;
     
 }
 
 p {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding: 10px 8px;
     font-size: 12px;
     text-align: center;
@@ -100,6 +104,12 @@ header p {
 
 #js_timer {
     text-align: center;
+    padding: 150px;
+}
+
+#js_pomodoro {
+    text-align: center;
+    padding: 150px;
 }
 
 #timer {
@@ -108,12 +118,36 @@ header p {
     font-size: 48px;
     text-align: center;
     font-family: monospace;
+    color: #ffffff
+}
+
+
+#pomodoro {
+    padding: 100, 50, 0, 50;
+    margin: 50px auto;
+    font-size: 48px;
+    text-align: center;
+    font-family: monospace;
+    color: #ffffff
+}
+
+#statusPomodoro {
+    padding: 0;
+    font-size: 16px;
+    font-family: monospace;
+    color: #ffffff
 
 }
 
 .quotes {
-    position: absolute;
-    padding: 300 0 0 0;
-    width: 100%
+    position: relative;
+    padding: 600 0 0 0;
 }
 
+th {
+    color: white
+}
+
+td {
+    color: white
+}

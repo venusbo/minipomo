@@ -1,0 +1,57 @@
+
+
+<html>
+    <head>
+        <title>MiniPOMO</title>
+        <link href="style-main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <br><br>
+
+<body>
+    <header>
+    <h2>hi, welcome to mini pomo</h2>
+    <br>
+        <nav>
+            <ul>
+                <li><a Class = "link" href ="page2.html">pomodoro</a></a></li>
+                <li><a class = "link" href="index.html">stopwatch</a></a></li>
+                <li><a Class = "link" href="page3.html">about</a></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class = "timer">
+        <div id ="js_pomodoro">
+            <div id = "statusPomodoro"></div>
+            <div id ="pomodoro">
+            00:00
+            </div>
+            <button onclick="start()">start</button>
+            <button onclick="reset()">reset</button>
+            
+        <script src="script-pomodoro.js"></script>
+    </div>
+
+    <div>
+        <table id = "historyProfile" class="table table-borderless table-striped table-earning">
+            <tr>
+                <th>Date/Time</th>
+                <th>Duration</th>
+                <th>Session</th>
+            </tr>
+            <tr>
+                <td id = "dateTime"></td>
+                <td id = "duration"></td>
+                <td>work/study</td>
+            </tr>
+            <script src="script-pomodoro.js" ></script>
+        </table>
+    </div>
+
+    <div class ="quotes">
+    <h2>what is minipomo?</h2>
+    <p>The Pomodoro Technique was developed in the late 1980s by then university student Francesco Cirillo. <br>
+        Cirillo was struggling to focus on his studies and complete assignments. Feeling overwhelmed, he asked <br>
+        himself to commit to just 10 minutes of focused study time. Encouraged by the challenge, <br>
+        he found a tomato (pomodoro in Italian) shaped kitchen timer, and the Pomodoro technique was born.</p>
+</body>
