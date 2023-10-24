@@ -59,12 +59,16 @@ function startPomodoro(){
 
 };
 
+function displayPomodoro(){
+    var sec = `${startPomo.data}`;
+    min = Math.floor(sec/60);
+    ele.innerHTML = min + ":" + sec%60;
+    ele1.innerHTML = "work/study :)";
+}
+
 timerWorker.onmessage = (ev) => {
     if (ev.data = sec) {
-        var sec = `${startPomo.data}`;
-        min = Math.floor(sec/60);
-        ele.innerHTML = min + ":" + sec%60;
-        ele1.innerHTML = "work/study :)";
+        displayPomodoro();
 }
 }
 
