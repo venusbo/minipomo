@@ -43,7 +43,7 @@ function start(){ // start pomo
     
 }
 
-timerWorker.onmessage("startBreak") = (ev) => {
+timerWorker.onmessage = (ev) => {
     if (ev.data === "startBreak") {
     startBreak();
     console.log ("start break message recieved from Worker");
