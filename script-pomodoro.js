@@ -63,8 +63,8 @@ function startPomodoro(){
 timerWorker.onmessage = (ev) => {
     if (ev.data = sec) {
         printPomodoro();
-    }
-}
+    };
+};
 
 function printPomodoro(){
     timerWorker.onmessage = function(startPomo) {
@@ -72,11 +72,12 @@ function printPomodoro(){
         min = Math.floor(sec/60);
         ele.innerHTML = min + ":" + sec%60;
         ele1.innerHTML = "work/study :)";
-    }
+    };
 };
 
 function reset(){ // reset timer
-
+    console.log("reset function initialised");
+    timerWorker.postMessage("reset");
     ele3.innerHTML = Math.floor((1500-sec)/60) + ":" + (1500-sec)%60; // returning duration of study to 'duration' table data
     clearInterval(pomodoro); // reset timer loop
     sec = 1500; // reset sec
@@ -84,7 +85,7 @@ function reset(){ // reset timer
     changeBackground("#c795ec");
     ele1.innerHTML = "click start to begin your next study session"
     return;
-}
+};
 
 
 
