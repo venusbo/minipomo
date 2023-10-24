@@ -43,7 +43,7 @@ function start(){ // start pomo
     
 }
 
-timerWorker.onmessage = (ev) => {
+timerWorker.onMessage = (ev) => {
     if (ev.data === "startBreak") {
     startBreak();
     console.log ("start break message recieved from Worker");
@@ -53,14 +53,14 @@ timerWorker.onmessage = (ev) => {
 
 function startPomodoro(){
     console.log("sending message to timer-worker.js to start timer")
-    timerWorker.postmessage(start);
+    timerWorker.postMessage("start");
 
     
 
 };
 
 function printPomodoro(){
-    timerWorker.onmessage = function(startPomo) {
+    timerWorker.onMessage = function(startPomo) {
         const sec = `${startPomo.data}`;
         min = Math.floor(sec + sec/60);
         ele.innerHTML = min + ":" + sec%60;
