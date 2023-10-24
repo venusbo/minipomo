@@ -31,8 +31,8 @@ function startBreak(){
         if(sec <= 0){
             reset();
         }
-        }, 1000)}
-
+        }, 1000)
+};
 
 
 function start(){ // start pomo
@@ -41,7 +41,8 @@ function start(){ // start pomo
     changeBackground("#95ecaf");
     startPomodoro();
     
-}
+};
+
 
 timerWorker.onmessage = () => {
     if (startPomo.data === "startBreak") {
@@ -54,17 +55,16 @@ timerWorker.onmessage = () => {
 function startPomodoro(){
     console.log("sending message to timer-worker.js to start timer")
     timerWorker.postMessage("start");
-
-    
-
 };
 
-function displayPomodoro(){
+
+
+function PrintPomodoro(){
     var sec = `${startPomo.data}`;
     min = Math.floor(sec/60);
     ele.innerHTML = min + ":" + sec%60;
     ele1.innerHTML = "work/study :)";
-}
+};
 
 timerWorker.onmessage = (startPomo) => {
     console.log("seconds calculation recieved from time worker to main script")
@@ -73,6 +73,8 @@ timerWorker.onmessage = (startPomo) => {
         
 }
 }
+
+
 
 function reset(){ // reset timer
 
@@ -84,6 +86,7 @@ function reset(){ // reset timer
     ele1.innerHTML = "click start to begin your next study session"
     return;
 }
+
 
 
 

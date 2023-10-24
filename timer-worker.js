@@ -1,6 +1,6 @@
 self.onmessage = (startPomo) => {
 	console.log("message recieved from main script")
-	if (startPomo.data === "start") {
+	if (ev.data === "start") {
 		 sec = 1500;
 		
 		setInterval(() => {
