@@ -67,6 +67,7 @@ timerWorker.onmessage = (ev) => {
 };
 
 function printPomodoro(){
+    console.log("calculations recieved from worker, printing them now")
     timerWorker.onmessage = function(startPomo) {
         const sec = `${startPomo.data}`;
         min = Math.floor(sec/60);
