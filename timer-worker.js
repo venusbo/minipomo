@@ -20,8 +20,9 @@ self.onmessage = (ev) => {
 
 
 self.onmessage = (ev) => {
-	console.log("reset message recieved from mainscript to javascript")
+	console.log("reset message recieved from mainscript to worker script")
 	if (ev.data === "reset") {
 		clearInterval(pomodoro);
+		self.postMessage("resetPomo");
 		};
 }
