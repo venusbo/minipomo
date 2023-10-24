@@ -66,12 +66,6 @@ timerWorker.onmessage = (ev) => {
     };
 };
 
-timerWorker.onmessage = (ev) => {
-    if (ev.data = "reset"); {
-        reset();
-    }
-}
-
 function printPomodoro(){
     console.log("calculations recieved from worker, printing them now")
     timerWorker.onmessage = function(startPomo) {
@@ -84,6 +78,7 @@ function printPomodoro(){
 
 function reset(){ // reset timer
     console.log("reset function initialised");
+    timerWorker.postMessage("reset");
     ele3.innerHTML = Math.floor((1500-sec)/60) + ":" + (1500-sec)%60; // returning duration of study to 'duration' table data
     clearInterval(pomodoro); // reset timer loop
     sec = 1500; // reset sec
@@ -92,6 +87,7 @@ function reset(){ // reset timer
     ele1.innerHTML = "click start to begin your next study session"
     return;
 };
+
 
 
 (function(){ // main loop
