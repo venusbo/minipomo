@@ -5,9 +5,42 @@ var ele2 = document.getElementById('dateTime');
 var ele3 = document.getElementById('duration');
 var startButton = document.getElementById('start');
 
-//var timerWorker = new Worker ('timer-worker.js');
+var workerTimer = new Worker ('timer-worker.js');
 
-//timerWorker.onmessage = 
+var workerTimer = {
+	id: 0,
+	callbacks: {},
+
+	setInterval: function (cb, interval, context) {
+		this.id++
+		var id = this.id
+		this.callbacks[id] = { fn: cb, context: context }
+		worker.postMessage({
+			command: 'interval:start',
+			interval: interval,
+			id: id,
+		})
+		return id
+	},
+
+	onMessage: function (e) {
+		switch (e.data.message) {
+			case 'interval:tick':
+				var callback = this.callbacks[e.data.id]
+				if (callback && callback.fn) callback.fn.apply(callback.context)
+				break
+			case 'interval:cleared':
+				delete this.callbacks[e.data.id]
+				break
+		}
+	},
+
+	clearInterval: function (id) {
+		worker.postMessage({ command: 'interval:clear', id: id })
+	},
+}
+
+worker.onmessage = workerTimer.onMessage.bind(workerTimer)
 
 
 // function to background colour for better status visbility on second monitor during study/work
@@ -44,16 +77,12 @@ function start(){ // start pomo
     
 }
 
-function tickPomodoro(){
-
-    sec
-}
 
 function startPomodoro(){
 
     sec = 1500;
 
-    pomodoro = setInterval(function() {
+    pomodoro = workerTimer.setInterval(function() {
         sec = sec-1;
         min = Math.floor(sec/60);
         ele.innerHTML = min + ":" + sec%60;
