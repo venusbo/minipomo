@@ -1,4 +1,4 @@
-self.onmessage = (startPomo) => {
+self.onmessage = (ev) => {
 	console.log("message recieved from main script")
 	if (ev.data === "start") {
 		 sec = 1500;
@@ -6,7 +6,6 @@ self.onmessage = (startPomo) => {
 		setInterval(() => {
 		sec = sec-1;
         self.postMessage(sec);
-		console.log(sec)
 		console.log("Tick, tick, posting sec message back to main script")
 
         if(sec <= 0){
