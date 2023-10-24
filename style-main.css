@@ -1,6 +1,7 @@
 body {
     font-family: monospace;
     background-color: #c795ec;
+    background-color: #c795ec;
 }
 
 .timer {
@@ -37,6 +38,7 @@ header h2 {
     font-size: 24;
     font-family: monospace;
     color: white
+    color: white
 }
 
 nav ul {
@@ -56,6 +58,7 @@ nav ul li {
     padding: 5px 10px;
     margin: 0;
     font-family: monospace;
+    
 
 }
 
@@ -64,7 +67,6 @@ h2 {
     color: #ffffff;
     font-size: 24px;
     font-family: monospace;
-    text-align: center;
 
 }
 
@@ -103,6 +105,16 @@ header p {
 }
 
 #js_timer {
+    text-align: center;
+    padding: 150px;
+}
+
+#js_pomodoro {
+    text-align: center;
+    padding: 150px;
+}
+
+#js_pomodoro {
     text-align: center;
     padding: 150px;
 }
