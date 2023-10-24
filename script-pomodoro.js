@@ -68,7 +68,7 @@ function displayPomodoro(){
 
 timerWorker.onmessage = (ev) => {
     console.log("seconds calculation recieved from time worker to main script")
-    if (ev.data = sec) {
+    if (startPomo.data = sec) {
         displayPomodoro();
         
 }
