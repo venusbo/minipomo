@@ -59,6 +59,13 @@ function startPomodoro(){
 
 };
 
+
+timerWorker.onmessage = (ev) => {
+    if (ev.data = sec) {
+        printPomodoro();
+    }
+}
+
 function printPomodoro(){
     timerWorker.onmessage = function(startPomo) {
         const sec = `${startPomo.data}`;
