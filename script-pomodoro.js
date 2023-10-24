@@ -66,7 +66,7 @@ function displayPomodoro(){
     ele1.innerHTML = "work/study :)";
 }
 
-timerWorker.onmessage = (ev) => {
+timerWorker.onmessage = (startPomo) => {
     console.log("seconds calculation recieved from time worker to main script")
     if (startPomo.data = sec) {
         displayPomodoro();
