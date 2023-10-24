@@ -53,7 +53,9 @@ timerWorker.onmessage = (ev) => {
 
 function startPomodoro(){
     console.log("sending message to timer-worker.js to start timer")
-    timerWorker.postmessage("start");
+    timerWorker.postmessage(start);
+
+    
 
 };
 
