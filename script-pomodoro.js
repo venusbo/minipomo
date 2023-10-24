@@ -89,8 +89,7 @@ function reset(){ // reset timer
 };
 
 
-
-(function(){ // main loop
+/*(function(){ // main loop
 
     pomodoro = setInterval(function() {0
     }, 1000)
@@ -102,4 +101,4 @@ function reset(){ // reset timer
     return;}
 
     
-)()
+)()*/
