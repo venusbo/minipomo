@@ -1,25 +1,27 @@
 self.onmessage = (ev) => {
 	console.log("start message recieved from main script")
-	
-	if (ev.data === "reset") {
-		console.log("reset message recieved from mainscript to javascript")
-		clearInterval();
-		};
+
 	
 	if (ev.data === "start") {
 		 sec = 1500;
 		
-		setInterval(() => {
+		pomodoro = setInterval(() => {
 		sec = sec-1;
         self.postMessage(sec);
-		console.log("Tick, tick, posting sec message back to main script")
-		
-	
+		console.log("Tick, tick, posting sec message back to main script");
 
         if(sec <= 0){
 			console.log("End pomodoro event triggered")
-            clearInterval();
+            clearInterval(pomodoro);
             self.postMessage("startBreak");
         };
         }, 1000)};
 };
+
+
+self.onmessage = (ev) => {
+	console.log("reset message recieved from mainscript to javascript")
+	if (ev.data === "reset") {
+		clearInterval(pomodoro);
+		};
+}
