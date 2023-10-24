@@ -60,15 +60,17 @@ function startPomodoro(){
 };
 
 function displayPomodoro(){
-    var sec = `${startPomo.data}`;
+    var sec = `${ev.data}`;
     min = Math.floor(sec/60);
     ele.innerHTML = min + ":" + sec%60;
     ele1.innerHTML = "work/study :)";
 }
 
 timerWorker.onmessage = (ev) => {
+    console.log("seconds calculation recieved from time worker to main script")
     if (ev.data = sec) {
         displayPomodoro();
+        
 }
 }
 
