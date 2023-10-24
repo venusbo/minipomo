@@ -1,8 +1,13 @@
 var pomodoro;
-var ele = document.getElementById('pomodoro')
-var ele1 = document.getElementById('statusPomodoro')
-var ele2 = document.getElementById('dateTime')
-var ele3 = document.getElementById('duration')
+var ele = document.getElementById('pomodoro');
+var ele1 = document.getElementById('statusPomodoro');
+var ele2 = document.getElementById('dateTime');
+var ele3 = document.getElementById('duration');
+var startButton = document.getElementById('start');
+
+//var timerWorker = new Worker ('timer-worker.js');
+
+//timerWorker.onmessage = 
 
 
 // function to background colour for better status visbility on second monitor during study/work
@@ -13,11 +18,13 @@ function changeBackground(backgroundColor) {
     });
   }
 
+
+
 // function starts countdown from 5 minutes then resets pomo
 function startBreak(){
     sec = 300;
     changeBackground("#ec9595");
-    pomodoro = setInterval(()=>{
+    pomodoro = setInterval(function() {
         sec = sec-1;
         min = Math.floor(sec/60);
         ele.innerHTML = min + ":" + sec%60
@@ -28,11 +35,25 @@ function startBreak(){
         }
         }, 1000)}
 
+
+
 function start(){ // start pomo
-    sec = 1500;
     ele2.innerHTML = new Date(); // return current date/time to first data slot
     changeBackground("#95ecaf");
-    pomodoro = setInterval(()=>{
+    startPomodoro();
+    
+}
+
+function tickPomodoro(){
+
+    sec
+}
+
+function startPomodoro(){
+
+    sec = 1500;
+
+    pomodoro = setInterval(function() {
         sec = sec-1;
         min = Math.floor(sec/60);
         ele.innerHTML = min + ":" + sec%60;
@@ -43,12 +64,12 @@ function start(){ // start pomo
             startBreak();
         }
         }, 1000)}
-        
+
+
 
 function reset(){ // reset timer
 
     ele3.innerHTML = Math.floor((1500-sec)/60) + ":" + (1500-sec)%60; // returning duration of study to 'duration' table data
-
     clearInterval(pomodoro); // reset timer loop
     sec = 1500; // reset sec
     ele.innerHTML = "25" + ":" + "00" // initialise pomo starting postion
@@ -61,7 +82,7 @@ function reset(){ // reset timer
 
 (function(){ // main loop
 
-    pomodoro = setInterval(()=>{0
+    pomodoro = setInterval(function() {0
     }, 1000)
     clearInterval(pomodoro);
     sec = 1500;
@@ -70,7 +91,6 @@ function reset(){ // reset timer
     changeBackground("#c795ec");
     return;}
 
+    
 )()
-
-
 
