@@ -60,7 +60,7 @@ function startPomodoro(){
 };
 
 function displayPomodoro(){
-    var sec = `${ev.data}`;
+    var sec = `${startPomo.data}`;
     min = Math.floor(sec/60);
     ele.innerHTML = min + ":" + sec%60;
     ele1.innerHTML = "work/study :)";
