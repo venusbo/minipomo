@@ -1,32 +1,18 @@
-var intervalIds = {}
+onmessage = function(startPomo) {
+	console.log("message recieved from main script")
+	if (ev.data === "start") {
+		 sec = 1500;
+		
+		setInterval(() => {
+		sec = sec-1;
+        min = Math.floor(sec + sec/60);
+        postMessage(sec);
+		console.log("Tick, tick, posting sec message back to main script")
 
-self.onmessage = function (e) {
-	switch (e.data.command) {
-		case 'interval:start':
-			var intvalId = setInterval(function () {
-				postMessage({
-					message: 'interval:tick',
-					id: e.data.id,
-				})
-			}, e.data.interval)
-
-			postMessage({
-				message: 'interval:started',
-				id: e.data.id,
-			})
-
-			intervalIds[e.data.id] = intvalId
-			break
-
-		case 'interval:clear':
-			clearInterval(intervalIds[e.data.id])
-
-			postMessage({
-				message: 'interval:cleared',
-				id: e.data.id,
-			})
-
-			delete intervalIds[e.data.id]
-			break
-	}
+        if(sec <= 0){
+			console.log("End pomodoro event triggered")
+            clearInterval(pomodoro);
+            postMessage("startBreak");
+        }
+        }, 1000)}
 }

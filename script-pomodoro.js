@@ -5,42 +5,7 @@ var ele2 = document.getElementById('dateTime');
 var ele3 = document.getElementById('duration');
 var startButton = document.getElementById('start');
 
-var workerTimer = new Worker ('timer-worker.js');
-
-var workerTimer = {
-	id: 0,
-	callbacks: {},
-
-	setInterval: function (cb, interval, context) {
-		this.id++
-		var id = this.id
-		this.callbacks[id] = { fn: cb, context: context }
-		worker.postMessage({
-			command: 'interval:start',
-			interval: interval,
-			id: id,
-		})
-		return id
-	},
-
-	onMessage: function (e) {
-		switch (e.data.message) {
-			case 'interval:tick':
-				var callback = this.callbacks[e.data.id]
-				if (callback && callback.fn) callback.fn.apply(callback.context)
-				break
-			case 'interval:cleared':
-				delete this.callbacks[e.data.id]
-				break
-		}
-	},
-
-	clearInterval: function (id) {
-		worker.postMessage({ command: 'interval:clear', id: id })
-	},
-}
-
-worker.onmessage = workerTimer.onMessage.bind(workerTimer)
+var timerWorker = new Worker ('timer-worker.js');
 
 
 // function to background colour for better status visbility on second monitor during study/work
@@ -71,30 +36,35 @@ function startBreak(){
 
 
 function start(){ // start pomo
+    console.log("start pomo sequence initiated")
     ele2.innerHTML = new Date(); // return current date/time to first data slot
     changeBackground("#95ecaf");
     startPomodoro();
     
 }
 
+Worker.onmessage("startBreak") = (ev) => {
+    if (ev.data === "startBreak") {
+    startBreak();
+    console.log ("start break message recieved from Worker");
+}
+};
+
 
 function startPomodoro(){
+    console.log("sending message to timer-worker.js to start timer")
+    Worker.postmessage("start");
 
-    sec = 1500;
+};
 
-    pomodoro = workerTimer.setInterval(function() {
-        sec = sec-1;
-        min = Math.floor(sec/60);
+function printPomodoro(){
+    Worker.onmessage = function(startPomo) {
+        const sec = `${startPomo.data}`;
+        min = Math.floor(sec + sec/60);
         ele.innerHTML = min + ":" + sec%60;
         ele1.innerHTML = "work/study :)";
-
-        if(sec <= 0){
-            clearInterval(pomodoro);
-            startBreak();
-        }
-        }, 1000)}
-
-
+    }
+};
 
 function reset(){ // reset timer
 
