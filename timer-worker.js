@@ -1,4 +1,4 @@
-self.onmessage = function(startPomo) {
+timerWorker.onmessage = (ev) => {
 	console.log("message recieved from main script")
 	if (ev.data === "start") {
 		 sec = 1500;
