@@ -59,21 +59,14 @@ function startPomodoro(){
 
 };
 
-
 timerWorker.onmessage = (ev) => {
     if (ev.data = sec) {
-        printPomodoro();
-    }
-}
-
-function printPomodoro(){
-    timerWorker.onmessage = function(startPomo) {
-        const sec = `${startPomo.data}`;
-        min = Math.floor(sec + sec/60);
+        var sec = `${startPomo.data}`;
+        min = Math.floor(sec/60);
         ele.innerHTML = min + ":" + sec%60;
         ele1.innerHTML = "work/study :)";
-    }
-};
+}
+}
 
 function reset(){ // reset timer
 

@@ -5,8 +5,8 @@ self.onmessage = (ev) => {
 		
 		setInterval(() => {
 		sec = sec-1;
-        min = Math.floor(sec + sec/60);
         self.postMessage(sec);
+		console.log(sec)
 		console.log("Tick, tick, posting sec message back to main script")
 
         if(sec <= 0){
