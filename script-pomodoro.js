@@ -35,6 +35,7 @@ function startBreak(){
 
 
 function start(){ // start pomo
+    worker0 = new Worker ("timer-worker.js")
     console.log("start pomo sequence initiated")
     ele2.innerHTML = new Date(); // return current date/time to first data slot
     changeBackground("#95ecaf");
