@@ -5,6 +5,9 @@ var ele2 = document.getElementById('dateTime');
 var ele3 = document.getElementById('duration');
 var startButton = document.getElementById('start');
 
+var timerWorker = new Worker ('timer-worker.js');
+
+
 // function to background colour for better status visbility on second monitor during study/work
 function changeBackground(backgroundColor) { 
     var elements = document.querySelectorAll("body, header, h2, p");
@@ -31,8 +34,8 @@ function startBreak(){
 
 
 
-function start(){ // start pomo;
-    worker0 = new Worker ('timer-worker.js');
+function start(){ // start pomo
+    worker0 = new Worker ("timer-worker.js")
     console.log("start pomo sequence initiated")
     ele2.innerHTML = new Date(); // return current date/time to first data slot
     changeBackground("#95ecaf");
