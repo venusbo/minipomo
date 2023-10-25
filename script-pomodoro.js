@@ -59,7 +59,6 @@ function startPomodoro(){
 
 };
 
-
 timerWorker.onmessage = (ev) => {
     if (ev.data = sec) {
         printPomodoro();

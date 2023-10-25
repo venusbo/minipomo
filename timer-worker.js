@@ -3,7 +3,9 @@ self.onmessage = (ev) => {
 	
 	if (ev.data === "reset") {
 		console.log("reset message recieved from mainscript to javascript")
+		sec = 1500;
 		clearInterval();
+		self.close();
 		};
 	
 	if (ev.data === "start") {
