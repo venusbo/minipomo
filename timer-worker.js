@@ -3,15 +3,15 @@ self.onmessage = (ev) => {
 	
 	if (ev.data === "reset") {
 		console.log("reset message recieved from mainscript to javascript")
-		sec = 1500;
-		clearInterval();
-		self.close();
+		sec = 1500; // reset sec to 25 min
+		clearInterval(Start); // reset SetInterval
+		self.close(); // close worker
 		};
 	
 	if (ev.data === "start") {
 		 sec = 1500;
 		
-		setInterval(() => {
+		Start = setInterval(() => {
 		sec = sec-1;
         self.postMessage(sec);
 		console.log("Tick, tick, posting sec message back to main script")

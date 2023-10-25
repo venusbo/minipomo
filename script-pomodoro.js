@@ -17,7 +17,6 @@ function changeBackground(backgroundColor) {
   }
 
 
-
 // function starts countdown from 5 minutes then resets pomo
 function startBreak(){
     sec = 300;
@@ -54,10 +53,8 @@ timerWorker.onmessage = (ev) => {
 function startPomodoro(){
     console.log("sending message to timer-worker.js to start timer")
     timerWorker.postMessage("start");
-
-    
-
 };
+
 
 timerWorker.onmessage = (ev) => {
     if (ev.data = sec) {
@@ -79,8 +76,6 @@ function reset(){ // reset timer
     console.log("reset function initialised");
     timerWorker.postMessage("reset");
     ele3.innerHTML = Math.floor((1500-sec)/60) + ":" + (1500-sec)%60; // returning duration of study to 'duration' table data
-    clearInterval(pomodoro); // reset timer loop
-    sec = 1500; // reset sec
     ele.innerHTML = "25" + ":" + "00" // initialise pomo starting postion
     changeBackground("#c795ec");
     ele1.innerHTML = "click start to begin your next study session"
