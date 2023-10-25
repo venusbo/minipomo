@@ -4,8 +4,11 @@ var ele1 = document.getElementById('statusPomodoro');
 var ele2 = document.getElementById('dateTime');
 var ele3 = document.getElementById('duration');
 var startButton = document.getElementById('start');
+var titleElement = document.getElementById("title");
 
 var timerWorker = new Worker ('timer-worker.js');
+
+
 
 
 // function to background colour for better status visbility on second monitor during study/work
@@ -26,6 +29,7 @@ function startBreak(){
         min = Math.floor(sec/60);
         ele.innerHTML = min + ":" + sec%60
         ele1.innerHTML = "break time ^_^"
+
 
         if(sec <= 0){
             reset();
@@ -70,6 +74,7 @@ function printPomodoro(){
         min = Math.floor(sec/60);
         ele.innerHTML = min + ":" + sec%60;
         ele1.innerHTML = "work/study :)";
+        titleElement = min + ":" + sec%60;
     };
 };
 
