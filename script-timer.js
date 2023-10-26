@@ -34,7 +34,6 @@ function printTimer(){
         const sec = `${startTimer.data}`;
         min = Math.floor(sec/60);
         ele.innerHTML = min + ":" + sec%60;
-        ele1.innerHTML = "How long can you stay concentrated for? :)";
     };
 };
 

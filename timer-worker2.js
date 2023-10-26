@@ -11,8 +11,8 @@ self.onmessage = (ev) => {
         console.log("pause message recieved from mainscript to timerworker2")
     };
 	
-	if (ev.data === "start") {
-        sec = 0;
+	if (ev.data === "start"){
+         sec = 0;
         timer = setInterval(()=>{
 		sec = sec + 1;
         self.postMessage(sec);
