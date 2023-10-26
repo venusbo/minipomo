@@ -43,12 +43,13 @@ self.onmessage = (ev) => {
 		Start = setInterval(() => {
 		sec = sec-1;
         self.postMessage(sec);
-		console.log("Tick, tick, posting sec message back to main script")
+		console.log("Tick, tick, posting sec message back to main script");
+		console.log(sec);
 	
 
         if(sec <= 0){
 			console.log("End pomodoro event triggered")
-            clearInterval();
+            clearInterval()
             self.postMessage("startBreak");
         };
         }, 1000)};

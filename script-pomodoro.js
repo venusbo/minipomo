@@ -75,6 +75,12 @@ function printPomodoro(){
         ele.innerHTML = min + ":" + sec%60;
         ele1.innerHTML = "work/study :)";
         titleElement = min + ":" + sec%60;
+
+        if(sec <= 0){
+			console.log("End pomodoro and start break event triggered")
+			sec = 1500;
+            startBreak();
+        };
     };
 };
 
