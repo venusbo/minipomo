@@ -9,7 +9,7 @@ self.onmessage = (ev) => {
 
     if (ev.data === "pause"){
         console.log("pause message recieved from mainscript to timerworker2")
-    }
+    };
 	
 	if (ev.data === "start") {
         sec = 0;
@@ -21,5 +21,5 @@ self.onmessage = (ev) => {
             
         }, 1000)
         return;
-    }
-}
+    };
+};

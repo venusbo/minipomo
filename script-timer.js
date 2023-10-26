@@ -22,6 +22,7 @@ function start(){
 };
 
 timerWorker2.onmessage = (ev) => {
+    console.log("sec recieved from timerWorker2.js")
     if (ev.data = sec) {
         printTimer();
     };
