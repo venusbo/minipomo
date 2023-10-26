@@ -18,7 +18,7 @@ function pause(){
 
 function start(){
     changeBackground("#95ecaf");
-    timerWorker.postMessage("start");
+    timerWorker2.postMessage("start");
 };
 
 timerWorker2.onmessage = (ev) => {
@@ -29,7 +29,7 @@ timerWorker2.onmessage = (ev) => {
 
 function printTimer(){
     console.log("calculations recieved from worker, printing them now")
-    timerWorker.onmessage = function(startTimer) {
+    timerWorker2.onmessage = function(startTimer) {
         const sec = `${startTimer.data}`;
         min = Math.floor(sec/60);
         ele.innerHTML = min + ":" + sec%60;
@@ -39,7 +39,7 @@ function printTimer(){
 
 function reset(){
     console.log("Timer reset sequence initiated")
-    timerWorker.postMessage("reset")
+    timerWorker2.postMessage("reset")
     sec = 0;
     min = 0;
     ele.innerHTML = min + ":" + sec%60
