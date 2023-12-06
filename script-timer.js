@@ -3,6 +3,9 @@ var ele = document.getElementById('timer');
 
 var timerWorker2 = new Worker ("timer-worker2.js")
 
+
+
+// function to background colour for better status visbility on second monitor during study/work
 function changeBackground(backgroundColor) {
     var elements = document.querySelectorAll("body, header, h2, p");
     elements.forEach(function(element) {
@@ -16,18 +19,21 @@ function pause(){
     return;
 }
 
-function start(){ // start pomo
-    if (sec > 0) {
-        return
-    };
 
-    if (sec <= 0) {
+// function starts countup from 00:00
+function start(){ // start timer
+
     worker0 = new Worker ("timer-worker2.js")
     console.log("start timer sequence initiated")
     ele2.innerHTML = new Date(); // return current date/time to first data slot
     changeBackground("#95ecaf");
     startPomodoro();
-    };
+};
+
+
+function startTimer(){
+    console.log("sending message to timer-worker2.js to start timer")
+    timerWorker2.postMessage("start");
 };
 
 timerWorker2.onmessage = (ev) => {
@@ -46,10 +52,6 @@ function printTimer(){
     };
 };
 
-function startTimer(){
-    console.log("sending message to timer-worker2.js to start timer")
-    timerWorker2.postMessage("start");
-};
 
 function reset(){
     console.log("Timer reset sequence initiated")
@@ -61,3 +63,18 @@ function reset(){
     changeBackground("#c795ec");
     return;
 };
+
+
+(function(){ // main loop
+
+    pomodoro = setInterval(function() {0
+    }, 1000)
+    clearInterval(pomodoro);
+    sec = 0;
+    ele.innerHTML = "00" + ":" + "00"
+    ele1.innerHTML = "click start to begin study session"
+    changeBackground("#c795ec");
+    return;}
+
+    
+)()
