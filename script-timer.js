@@ -1,6 +1,6 @@
 var timer;
 var ele = document.getElementById('timerDisplay');
-var ele1 = document.getElementById('statusTimer');
+var ele1 = document.getElementById('statusPomodoro');
 
 var startButton = document.getElementById('start');
 var titleElement = document.getElementById("title");
@@ -40,14 +40,12 @@ function start(){ // start timer
 function startTimer(){
     console.log("sending message to timer-worker2.js to start timer")
     timerWorker2.postMessage("start");
-    ele2.innerHTML = "study/work time ^_^"
+    
 };
 
 timerWorker2.onmessage = (ev) => {
     console.log("sec recieved from timerWorker2.js")
-    if (ev.data = sec) {
-        printTimer();
-    };
+    printTimer();
 };
 
 function printTimer(){
@@ -56,6 +54,7 @@ function printTimer(){
         const sec = `${startTimer.data}`;
         min = Math.floor(sec/60);
         ele.innerHTML = min + ":" + sec%60;
+        ele1.innerHTML = "study/work time ^_^"
     };
 };
 
