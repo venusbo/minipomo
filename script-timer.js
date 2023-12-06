@@ -1,5 +1,11 @@
 var timer;
 var ele = document.getElementById('timer');
+var ele1 = document.getElementById('statusTimer');
+
+var startButton = document.getElementById('start');
+var titleElement = document.getElementById("title");
+
+
 
 var timerWorker2 = new Worker ("timer-worker2.js")
 
