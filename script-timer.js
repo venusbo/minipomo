@@ -14,20 +14,19 @@ function changeBackground(backgroundColor) {
   }
 
 function pause(){
+    console.log("sending message to timer-worker2.js to pause timer")
+    timerWorker2.postMessage("pause")
     changeBackground("#ec9595");
-    clearInterval(timer);
-    return;
-}
+};
 
 
 // function starts countup from 00:00
 function start(){ // start timer
 
     worker0 = new Worker ("timer-worker2.js")
-    console.log("start timer sequence initiated")
-    ele2.innerHTML = new Date(); // return current date/time to first data slot
+    console.log("start timer sequence initiated");
     changeBackground("#95ecaf");
-    startPomodoro();
+    startTimer();
 };
 
 
@@ -53,17 +52,19 @@ function printTimer(){
 };
 
 
-function reset(){
+function reset(){ // reset timer
     console.log("Timer reset sequence initiated")
     timerWorker2.postMessage("reset")
     ele3.innerHTML = Math.floor((sec)/60) + ":" + (sec)%60; // returning duration of study to 'duration' table data
-    sec = 0;
-    min = 0;
     ele.innerHTML = "00" + ":" + "00"
-    changeBackground("#c795ec");
+    changeBackground("#c795ec"); 
     return;
 };
 
+function resume(){
+    console.log("Resume sequence initiated")
+    timerWorker2.postMessage("resume")
+}
 
 (function(){ // main loop
 
