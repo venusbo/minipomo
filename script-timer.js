@@ -62,7 +62,6 @@ function printTimer(){
 function reset(){ // reset timer
     console.log("Timer reset sequence initiated")
     timerWorker2.postMessage("reset")
-    ele3.innerHTML = Math.floor((sec)/60) + ":" + (sec)%60; // returning duration of study to 'duration' table data
     ele.innerHTML = "00" + ":" + "00"
     changeBackground("#c795ec"); 
     return;
@@ -71,7 +70,8 @@ function reset(){ // reset timer
 function resume(){
     console.log("Resume sequence initiated")
     timerWorker2.postMessage("resume")
-}
+    changeBackground("#95ecaf");
+};
 
 (function(){ // main loop
 
