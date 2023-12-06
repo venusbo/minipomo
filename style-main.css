@@ -113,17 +113,7 @@ header p {
     padding: 150px;
 }
 
-#js_pomodoro {
-    text-align: center;
-    padding: 150px;
-}
-
-#js_pomodoro {
-    text-align: center;
-    padding: 150px;
-}
-
-#timer {
+#timerDisplay {
     padding: 100, 50, 0, 50;
     margin: 50px auto;
     font-size: 48px;

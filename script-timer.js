@@ -1,5 +1,5 @@
 var timer;
-var ele = document.getElementById('timer');
+var ele = document.getElementById('timerDisplay');
 var ele1 = document.getElementById('statusTimer');
 
 var startButton = document.getElementById('start');
@@ -23,6 +23,7 @@ function pause(){
     console.log("sending message to timer-worker2.js to pause timer")
     timerWorker2.postMessage("pause")
     changeBackground("#ec9595");
+    ele2.innerHTML = "having a break?"
 };
 
 
@@ -39,6 +40,7 @@ function start(){ // start timer
 function startTimer(){
     console.log("sending message to timer-worker2.js to start timer")
     timerWorker2.postMessage("start");
+    ele2.innerHTML = "study/work time ^_^"
 };
 
 timerWorker2.onmessage = (ev) => {
